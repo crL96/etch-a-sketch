@@ -25,9 +25,13 @@ function generateDivGrid(n) {
 
 generateDivGrid(16);
 
-//add reset button
+//reset button, maximum value of 100, ask again if higher
 const btnReset = document.querySelector("#btnReset");
 btnReset.addEventListener("click", () => {
+    let x;
+    do {
+        x = prompt("What size grid do you want? (Maximum value: 100)");
+    } while (x > 100)
     container.replaceChildren();
-    generateDivGrid(16);
+    generateDivGrid(x);
 });
