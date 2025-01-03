@@ -11,6 +11,10 @@ function generateDivGrid(n) {
         for (let i = 0; i < n; i++) {
             const box = document.createElement("div");
             box.className = "box";
+            //add eventlistener to each box
+            box.addEventListener("mouseenter", () => {
+                box.classList.add("hovered");
+            });
     
             row.appendChild(box);
         }
@@ -21,11 +25,9 @@ function generateDivGrid(n) {
 
 generateDivGrid(16);
 
-
-//Add eventlistener to each box and if mouse enters, add css class to change color
-const boxes = document.querySelectorAll(".box");
-boxes.forEach((box) => {
-    box.addEventListener("mouseenter", () => {
-        box.classList.add("hovered");
-    });
+//add reset button
+const btnReset = document.querySelector("#btnReset");
+btnReset.addEventListener("click", () => {
+    container.replaceChildren();
+    generateDivGrid(16);
 });
